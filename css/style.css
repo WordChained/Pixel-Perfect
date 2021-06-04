@@ -1,0 +1,223 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: lato-regular, sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+@font-face {
+    font-family: eurofurence regular;
+    src: url(/fonts/eurof55/eurof55.woff);
+}
+
+@font-face {
+    font-family: lato-bold;
+    src: url(/fonts/lato/Lato-Bold.ttf);
+}
+
+@font-face {
+    font-family: lato-regular;
+    src: url(/fonts/lato/Lato-Regular.ttf);
+}
+
+@font-face {
+    font-family: champagne limousines;
+    src: url(/fonts/champagne_limousines/Champagne\ &\ Limousines.ttf);
+}
+
+
+/* Nav-bar */
+
+.main-header {
+    background: #292929;
+    color: #dfdfdf;
+    padding-right: 16.1875rem;
+    margin: 0;
+}
+
+
+/* logo */
+
+.logo {
+    font-family: eurofurence regular, sans-serif;
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.logo span {
+    color: greenyellow;
+}
+
+
+/* head logo */
+
+.nav-border .logo {
+    padding-top: 3.0625rem;
+    padding-bottom: 3.0625rem;
+    padding-right: 28.125rem;
+    padding-left: 16.3125rem;
+    border-bottom: 0.375rem solid black;
+    border-right: none;
+}
+
+.main-nav {
+    font-family: lato-bold, sans-serif;
+}
+
+.main-header .main-nav>* {
+    width: 8.3125rem;
+    text-align: center;
+    vertical-align: middle;
+    border-left: 0.5px black solid;
+    border-bottom: 0.375rem solid black;
+    padding-top: 3.625rem;
+    padding-bottom: 3.625rem;
+    cursor: pointer;
+}
+
+.main-header .main-nav>:hover {
+    border-bottom: 0.375rem solid #58C93A;
+    color: #58C93A
+}
+
+.nav-border {
+    border: 0.5px black solid;
+    border-top: none;
+    border-left: none
+}
+
+
+/* main content */
+
+.main-content {}
+
+h2,
+button {
+    font-family: lato-bold, sans-serif;
+}
+
+.main-layout {
+    margin: 0 auto;
+    padding-right: 16.1875rem;
+    padding-left: 16.3125rem;
+    flex-direction: row;
+}
+
+.main-body {
+    border: 1px #E1E0E0 solid;
+}
+
+.content {
+    padding-right: 2.5rem;
+    padding-left: 1.5625rem;
+}
+
+
+/* prev-next */
+
+.prev-next {
+    font-family: champagne limousines, sans-serif;
+    font-size: 1.125rem;
+    margin-right: 16.1875rem;
+    margin-left: 16.3125rem;
+    border: 1px #E1E0E0 solid;
+    padding-inline-end: 1.6875rem;
+    padding-inline-start: 1.6875rem;
+    padding-top: 1.875rem;
+    padding-bottom: 1.875rem;
+}
+
+.prev-next img {
+    object-fit: contain;
+}
+
+.prev-next .arrow-right {
+    transform: rotate(180deg);
+    margin-left: 0.625rem;
+}
+
+.prev-next .arrow-left {
+    margin-right: 0.625rem;
+}
+
+
+/* footer */
+
+footer {
+    background-color: #E1E0E0;
+    padding-top: 4.9375rem;
+    padding-bottom: 4.9375rem;
+}
+
+.credits,
+footer .logo {
+    padding-bottom: 1.875rem;
+}
+
+footer .social-icons img {
+    width: 2.5625rem;
+    object-fit: contain;
+    filter: grayscale(100%);
+    cursor: pointer;
+    margin-right: 0.625rem;
+    margin-left: 0.625rem;
+}
+
+footer .social-icons img:hover {
+    filter: grayscale(0%);
+}
+
+
+/* Helpers */
+
+
+/* padding helper */
+
+.mar-b {
+    margin-bottom: 5rem;
+}
+
+.txt-align {
+    text-align: center;
+}
+
+
+/* flex helpers */
+
+.flex {
+    display: flex;
+}
+
+.col {
+    flex-direction: column;
+}
+
+.flex.space-between {
+    justify-content: space-between;
+}
+
+.flex.align-items-space-between {
+    align-items: space-between;
+}
+
+.flex.align-center {
+    align-items: center;
+}
+
+.flex.justify-content-center {
+    justify-content: center;
+}
+
+
+/* List Helpers */
+
+.clean-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
