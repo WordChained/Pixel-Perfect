@@ -10,22 +10,25 @@
 </head>
 
 <body>
+    <div class="main-screen" onclick="toggleMenu()"></div>
     <header class="main-header flex space-between main-layout">
 
-        <span class="logo">Blogin<span class="logo-dot">.</span> </span>
+        <span class="logo flex">Blogin<span class="logo-dot">.</span> </span>
         <ul class=" main-nav clean-list flex main-layout">
             <a href="index.html#main-nav">Journel</a>
             <a href="index.html#main-nav">About</a>
             <a href="index.html#main-nav">Work</a>
             <a href="index.html#main-nav">Contact</a>
         </ul>
+        <button class="btn-menu" onclick="toggleMenu()">☰</button>
+        <button class="btn-menu-close" onclick="toggleMenu()">X</button>
     </header>
     <main class="main-content main-layout flex">
 
-        <section class="main-body">
-            <div class="card flex mar-b">
-                <img class="image" src="img/1.png" alt="">
-                <div class="content flex space-between col">
+        <section class="main-body flex">
+            <div class="card flex">
+                <img class="image flex" src="img/1.png" alt="">
+                <div class="content flex space-between">
                     <h2>Duis aute irure dolor in henderit in voluptate.</h2>
                     <p>
                         <span>
@@ -36,13 +39,12 @@
                         <span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur...</span>
                     </p>
                     <button class="card-btn">Continue Reading 
-                        <img src="img/arrow.png" alt="">
                     </button>
                 </div>
             </div>
-            <div class="card flex mar-b">
+            <div class="card flex">
                 <img class="image" src="img/2.png" alt="">
-                <div class="content flex space-between col">
+                <div class="content flex space-between">
                     <h2>Duis aute irure dolor in henderit in voluptate.</h2>
                     <p>
                         <span>
@@ -53,13 +55,12 @@
                         <span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur...</span>
                     </p>
                     <button class="card-btn">Continue Reading 
-                        <img src="img/arrow.png" alt="">
                     </button>
                 </div>
             </div>
-            <div class="card flex mar-b">
+            <div class="card flex">
                 <img class="image" src="img/3.png" alt="">
-                <div class="content flex space-between col">
+                <div class="content flex space-between">
                     <h2>Duis aute irure dolor in henderit in voluptate.</h2>
                     <p>
                         <span>
@@ -70,7 +71,6 @@
                         <span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur...</span>
                     </p>
                     <button class="card-btn">Continue Reading 
-                        <img src="img/arrow.png" alt="">
                     </button>
                 </div>
             </div>
@@ -101,6 +101,11 @@
             <img src="img/color-icons/dribble.png" class="social-icon dribbler">
         </div>
     </footer>
+    <script>
+        function toggleMenu() {
+            document.body.classList.toggle('menu-open');
+        }
+    </script>
 </body>
 
 </html>
