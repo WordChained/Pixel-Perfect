@@ -31,6 +31,9 @@ body {
     src: url(/fonts/champagne_limousines/Champagne\ &\ Limousines\ Bold.ttf);
 }
 
+
+/* cover menus */
+
 .main-screen {
     position: fixed;
     top: 0;
@@ -45,12 +48,121 @@ body {
     transition: opacity .6s;
 }
 
+.secondary-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .9);
+    cursor: pointer;
+    /* display: none; */
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .6s;
+}
+
+.modal {
+    flex-direction: column;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: flex-end;
+    height: 16.25rem;
+    width: 22rem;
+    background-color: whitesmoke;
+    border: black solid 2px;
+    border-radius: 10px;
+    box-shadow: white 1px 2px 4px, white -1px 5px 4px;
+    z-index: 10;
+    display: none;
+    font-family: champagne-limousines-bold;
+}
+
+.modal h3 {
+    align-self: center;
+    font-size: 1.7rem;
+    text-align: center;
+}
+
+.modal input {
+    width: 15rem;
+    margin-bottom: 2em;
+    align-self: center;
+    padding: 1rem;
+    font-size: 1rem
+}
+
+.modal .buttons {
+    justify-content: space-around;
+    padding: 10px 20px;
+}
+
+.submit-animation {
+    animation: gradient 200ms linear forwards;
+}
+
+@keyframes gradient {
+    0% {
+        background: radial-gradient(circle at center, rgba( 255, 125, 125, 0) 0%, #fff 0%, #fff 100%);
+    }
+    25% {
+        background: radial-gradient(circle at center, rgba( 255, 125, 125, 0.3) 24%, #fff 25%, #fff 100%);
+    }
+    50% {
+        background: radial-gradient(circle at center, rgba( 255, 125, 125, 0.5) 49%, #fff 50%, #fff 100%);
+    }
+    75% {
+        background: radial-gradient(circle at center, rgba( 255, 125, 125, 0.8) 74%, #fff 75%, #fff 100%);
+    }
+    100% {
+        color: #fff;
+        background: radial-gradient(circle at center, #f88 99%, #fff 100%, #fff 100%);
+    }
+}
+
+.modal button {
+    box-shadow: rgb(36, 36, 36) 0.3px 1px 7px;
+    color: black;
+    border: none;
+    background-color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 1rem;
+    font-family: champagne-limousines-bold;
+    font-size: 1.1rem;
+}
+
+body.modal-open .modal {
+    display: flex;
+}
+
+body.modal-open .card-btn,
+body.modal-open .social-icons {
+    z-index: -1;
+}
+
+
+/* navBar menu */
+
 .btn-menu-close {
     display: none;
 }
 
 body.menu-open .main-screen {
     /* display: block; */
+    pointer-events: auto;
+    opacity: 1;
+}
+
+
+/* subscribe modal */
+
+body.modal-open .secondary-screen {
     pointer-events: auto;
     opacity: 1;
 }
@@ -102,7 +214,7 @@ body.menu-open .main-screen {
     cursor: pointer;
 }
 
-.main-header .main-nav:last-child {
+.main-header .main-nav a:last-of-type {
     border-right: 0.5px #1e1e1e solid;
 }
 
@@ -134,10 +246,63 @@ body.menu-open .main-screen {
 }
 
 
+/* journal dropdown */
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1d1c1c;
+    min-width: 140px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    margin-top: 3.8rem;
+    margin-left: -0.2rem;
+    animation: rotateX 0.4s linear;
+}
+
+.dropdown-content span {
+    color: rgb(238, 230, 230);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: lato-bold;
+}
+
+@keyframes rotateX {
+    0% {
+        opacity: 0;
+        transform: rotateY(-90deg);
+        /* transform: rotateX(900deg); */
+    }
+    50% {
+        transform: rotateY(-20deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotateY(0deg);
+    }
+}
+
+@media (min-width: 741px) {
+    .dropdown-content span:hover {
+        background-color: rgb(202, 199, 199);
+    }
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+}
+
+
+/* .dropdown-content span:hover {
+    background-color: rgb(202, 199, 199);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+} */
+
+
 /* main content */
-
-
-/* .main-content {} */
 
 h2,
 button {
@@ -358,9 +523,15 @@ footer .social-icons img:hover {
         margin-right: 5%;
         margin-left: 5%;
     }
+    .dropdown-content {
+        margin-top: 2rem;
+    }
+    .dropdown-content span {
+        font-size: 1rem;
+    }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 980px) {
     body {
         font-size: 20px;
     }
@@ -393,9 +564,16 @@ footer .social-icons img:hover {
     }
     .main-header .main-nav>* {
         width: 5rem;
+        font-size: 1rem;
     }
     .main-header .logo {
         margin-right: 0;
+    }
+    .dropdown-content {
+        margin-top: 1.8rem;
+    }
+    .dropdown-content span {
+        font-size: 1rem;
     }
 }
 
@@ -429,9 +607,13 @@ footer .social-icons img:hover {
     }
     body.menu-open .main-nav a {
         /* border-bottom: 1px black solid; */
-        border-left: none;
+        border: none;
         color: black;
         margin-top: 2rem;
+    }
+    /* menu: */
+    body.menu-open .main-nav a:last-of-type {
+        border: none
     }
     body.menu-open .main-nav {
         transform: translateX(0);
@@ -457,5 +639,44 @@ footer .social-icons img:hover {
     body.menu-open .main-header {
         position: fixed;
         width: 100%;
+    }
+    .modal {
+        height: 100%;
+        width: 100%;
+        background: url(/img/autumn.jpg);
+        filter: grayscale(55%);
+        color: white;
+        font-weight: 900;
+    }
+    .modal>* {
+        margin-bottom: 11rem;
+    }
+    .modal h3 {
+        margin-bottom: 1rem;
+    }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #c0b9b9;
+        min-width: 130px;
+        border-radius: 10px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        right: 8rem;
+        top: -2.5px;
+        animation: rotateX 0.4s linear;
+    }
+    .dropdown-content span:hover {
+        background-color: rgb(202, 199, 199);
+    }
+    .dropdown:focus .dropdown-content {
+        display: block;
+    }
+    .dropdown-content span {
+        color: rgb(77, 74, 74);
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        font-family: lato-bold;
     }
 }

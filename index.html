@@ -10,12 +10,28 @@
 </head>
 
 <body>
+    <div class="modal">
+        <h3 class="flex">Join us to get access to the latest stories!</h3>
+        <input type="email" placeholder="JhonDoe@someEmail.com" minlength="6" maxlength="30">
+        <div class="buttons flex">
+            <button class="subscribe" onclick="onSubmit()">SUBSCRIBE</button>
+            <button onclick="toggleSubscribeModal()">CLOSE</button>
+        </div>
+    </div>
+
     <div class="main-screen" onclick="toggleMenu()"></div>
+    <div class="secondary-screen" onclick="toggleSubscribeModal()"></div>
     <header class="main-header flex space-between main-layout">
 
         <span class="logo flex">Blogin<span class="logo-dot">.</span> </span>
         <ul class=" main-nav clean-list flex main-layout">
-            <a href="index.html#main-nav">Journel</a>
+            <a class="dropdown" href="index.html#main-nav">
+                <div class="dropdown-content">
+                    <span>October 2016</span>
+                    <span>January 2017</span>
+                    <span>April 2017</span>
+                    <span>July 2017</span>
+                </div> Journel</a>
             <a href="index.html#main-nav">About</a>
             <a href="index.html#main-nav">Work</a>
             <a href="index.html#main-nav">Contact</a>
@@ -38,7 +54,7 @@
                         <br>
                         <span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur...</span>
                     </p>
-                    <button class="card-btn">Continue Reading 
+                    <button class="card-btn" onclick="toggleSubscribeModal()">Continue Reading 
                     </button>
                 </div>
             </div>
@@ -54,7 +70,7 @@
                         <br>
                         <span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur...</span>
                     </p>
-                    <button class="card-btn">Continue Reading 
+                    <button class="card-btn" onclick="toggleSubscribeModal()">Continue Reading 
                     </button>
                 </div>
             </div>
@@ -70,7 +86,7 @@
                         <br>
                         <span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur...</span>
                     </p>
-                    <button class="card-btn">Continue Reading 
+                    <button class="card-btn" onclick="toggleSubscribeModal()">Continue Reading 
                     </button>
                 </div>
             </div>
@@ -104,6 +120,22 @@
     <script>
         function toggleMenu() {
             document.body.classList.toggle('menu-open');
+        }
+
+        function toggleSubscribeModal() {
+            document.body.classList.toggle('modal-open');
+        }
+
+        function onSubmit() {
+            var elSubmitInput = document.querySelector('.modal input')
+            if (!elSubmitInput.value) return;
+            var elSubBtn = document.querySelector('.subscribe')
+            elSubmitInput.value = '';
+            elSubBtn.classList.add('submit-animation')
+            setTimeout(() => {
+                toggleSubscribeModal()
+                elSubBtn.classList.remove('submit-animation')
+            }, 600);
         }
     </script>
 </body>
