@@ -250,6 +250,15 @@ footer .social-icons img {
     margin-left: 0.625rem;
 }
 
+footer .social-icons img:last-child {
+    margin-left: 1.25rem;
+    margin-right: 0;
+}
+
+footer .social-icons img:first-child {
+    margin-left: 0
+}
+
 footer .social-icons img:hover {
     filter: grayscale(0%);
 }
